@@ -1,6 +1,6 @@
 #include "main.h"
 
-void print_buffer(char *buffer, int *buff_ind);
+void print_buffer(char *buffer, int *buff_index);
 
 /**
  * _printf - Printf Function
@@ -11,10 +11,10 @@ void print_buffer(char *buffer, int *buff_ind);
 int _printf(const char *format, ...)
 {
 	int i, count = 0, char_count = 0;
-	int flags, width, precision, size, buff_ind = 0;
+	int flags, width, precision, size, buff_index = 0;
 
 	va_list args;
-	char *buff;
+	char *buffer;
 
 	buff = malloc(BUFF_SIZE * sizeof(char));
 	if(buff == NULL)
@@ -26,14 +26,14 @@ int _printf(const char *format, ...)
 	{
 		if(format[1] != '%')
 		{
-			buffer[buff_ind++] = format[1];
-			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
+			buffer[buff_index++] = format[1];
+			if (buff_index == BUFF_SIZE)
+				print_buffer(buffer, &buff_index);
 			char_count++;
 		}
 		else
 		{
-			print_buffer(buffer, &buff_ind);
+			print_buffer(buffer, &buff_index);
 			flags = get_flags(format, &i);
 			width = get_width(format, &i, args);
 			precision = get_precision(format, &i, args);
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	
-	print_buffer(buffer, &buff_ind);
+	print_buffer(buffer, &buff_index);
 
 	va_end(args);
 
@@ -64,10 +64,10 @@ int _printf(const char *format, ...)
  * @buff_ind: Index at which to add next char, represents the length.
  */
 
-void print_buffer(char *buffer, int *buff_ind)
+void print_buffer(char *buffer, int *buff_index)
 {
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
+	if (*buff_index > 0)
+		write(1, &buffer[0], *buff_index);
 
-    *buff_ind = 0;
+    *buff_index = 0;
 }       
