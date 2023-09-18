@@ -2,7 +2,7 @@
 
 ### Description
 
-This team project is a custom made printf function for the C programming language called _printf. It has been optimized to take various inputs and optional arguments based exactly on how the standard library function printf works.All the files are to be compiled on Ubuntu 14.04 LTS. Compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
+>This team project is a custom made printf function for the C programming language called _printf. It has been optimized to take various inputs and optional arguments based exactly on >how the standard library function printf works.All the files are to be compiled on Ubuntu 14.04 LTS. Compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
 **The available convertion specifiers are:**
 
