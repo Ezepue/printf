@@ -6,16 +6,44 @@
 
 **The available convertion specifiers are:**
 
-* %c: Prints a single character.
-* %s: Prints a string of characters.
-* %d: Prints integers.
-* %i: Prints integers.
-* %b: Prints the binary representation of an unsigned decimal.
-* %u: Prints unsigned integers
-* %x: Prints the hexadecial representation of an unsigned decimal in lowercase letters
-* %X:Prints the hexadecial representation of an unsigned decimal in uppercase letters
-* %r: Prints a reversed string
-* %R: Prints the Rot13 interpretation of a string
+0.	function that produces output according to a format, handles;
+	* %c: Prints a single character.
+	* %s: Prints a string of characters.
+1.	function that prints integers; handles;
+	* %d
+	* %i
+2.	unsigned int argument is converted to binary. handles;
+	* %b: Prints the binary representation of an unsigned decimal
+3.	function that prints unsigned integers, handles;
+	* %u
+	* %x: prints the hexadecial representation of an unsigned decimal
+	      in lowercase letters
+	* %X:Prints the hexadecial representation of an unsigned decimal
+	     in uppercase letters
+4.	Uses a local buffer of 1024 chars in order to call write as littl
+	e as possible.
+5.	function that prints a string, handles;
+	* %S
+6.	prints the memory address represented by that pointer in
+	hexadecimal notation, handles
+	* %p
+7.	handles the following flag characters for non-custom conversion 
+	specifiers;
+	* +
+	* space
+	* #
+8.	handles the following length modifiers for non-custom conversion
+	specifiers;
+	* l
+	* h
+9.	handles the field width for non-custom conversion specifiers
+10.	handles the precision for non-custom conversion specifiers
+11.	handles the 0 flag character for non-custom conversion specifiers
+12.	handles the - flag character for non-custom conversion specifiers
+13.	custom format specifier, handles;
+	* %r: Prints a reversed string
+14.	prints the Rot13 interpretation of a string, handles;
+	* %R
 
 
 ```
@@ -53,5 +81,3 @@ int main(void)
     return (0);
 }
 ```
-
-

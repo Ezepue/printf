@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * get_flags - Calculates active flags
- * @format: Formatted string in which to print the arguments
+ * get_flags - Active flags Calculated
+ * @format: Formatted string, arguments printed here
  * @a: take a parameter.
  * Return: Flags:
  */
@@ -33,9 +33,9 @@ int get_flags(const char *format, int *a)
 }
 
 /**
- * get_size - Calculates the size to cast the argument
- * @format: Formatted string in which to print the arguments
- * @a: List of arguments to be printed.
+ * get_size - Calculates size in which argument is casted
+ * @format: Formatted string, arguments printed here
+ * @a: Arguments List to be printed.
  * Return: Precision.
  */
 int get_size(const char *format, int *a)
@@ -57,9 +57,9 @@ int get_size(const char *format, int *a)
 }
 
 /**
- * get_width - Calculates the width for printing
- * @format: Formatted string in which to print the arguments.
- * @a: List of arguments to be printed.
+ * get_width - Width claculated for printing
+ * @format: Formatted string, arguments printed here
+ * @a: Arguments List to be printed.
  * @ap: list of arguments.
  * Return: width.
  */
@@ -91,12 +91,13 @@ int get_width(const char *format, int *a, va_list ap)
 }
 
 /**
- * get_precision - Calculates the precision for printing
+ * get_precision - Precision calculator for printing
  * @format: Formatted string in which to print the arguments
- * @a: List of arguments to be printed.
+ * @a: Arguments list to be printed.
  * @ap: list of arguments.
  * Return: Precision.
  */
+
 int get_precision(const char *format, int *a, va_list ap)
 {
 	int current_idx = *a + 1;
