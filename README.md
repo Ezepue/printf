@@ -23,7 +23,6 @@ The available convertion specifiers are:
  * main - Entry point
  * Return: Always 0
  */
-
 int main(void)
 {
     int a;
