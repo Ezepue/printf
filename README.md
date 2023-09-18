@@ -18,7 +18,7 @@ This team project is a custom made printf function for the C programming languag
 * %R: Prints the Rot13 interpretation of a string
 
 
-``
+```
 #include "main.h"
 #include <stdio.h>
 /**
@@ -52,6 +52,6 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
     return (0);
 }
-``
+```
 
 
