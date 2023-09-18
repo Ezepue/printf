@@ -10,11 +10,11 @@
  * @size: Size specifier
  * Return: Number of chars printed.
  */
-int print_pt(va_list ap, char *buffer,
+int print_pt(va_list ap, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char extra_chr = 0, pad = ' ';
-	int a = BUFF_SIZE - 2, length = 2, pad_start = 1; 
+	int a = BUFF_SIZE - 2, length = 2, pad_start = 1;
 	unsigned long number_addrs;
 	char map_to[] = "0123456789abcdef";
 	void *address = va_arg(ap, void *);
@@ -46,8 +46,7 @@ int print_pt(va_list ap, char *buffer,
 
 	a++;
 
-	/*return (write(1, &buffer[a], BUFF_SIZE - a - 1));*/
-	return (write_pointer(buffer, a, length,
+	return (write_ptr(buffer, a, length,
 		width, flags, pad, extra_chr, pad_start));
 }
 
@@ -80,7 +79,7 @@ int print_nonprint(va_list ap, char buffer[],
 		if (is_printable(str[a]))
 			buffer[a + offset] = str[a];
 		else
-			offset += append_hexa_code(str[i], buffer, a + offset);
+			offset += append_hexa_code(str[a], buffer, a + offset);
 
 		a++;
 	}
@@ -92,7 +91,7 @@ int print_nonprint(va_list ap, char buffer[],
 
 /**
  * print_reverse - Prints reverse string.
- * @ap: Lista of arguments
+ * @ap: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -112,7 +111,7 @@ int print_reverse(va_list ap, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 
-	str = va_arg(types, char *);
+	str = va_arg(ap, char *);
 
 	if (str == NULL)
 	{
@@ -120,23 +119,21 @@ int print_reverse(va_list ap, char buffer[],
 
 		str = ")Null(";
 	}
-	a = strlen(str);
-		;
 
-	while (a >= 0)
+	for (a = 0; str[a]; a++)
+	for (a = a - 1; a >= 0; a--)
 	{
 		char z = str[a];
 
 		write(1, &z, 1);
 		count++;
-        a--;
 	}
 	return (count);
 }
 
 /**
  * print_str_rot13 - Print a string in rot13.
- * @ap: Lista of arguments
+ * @ap: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -154,7 +151,7 @@ int print_str_rot13(va_list ap, char buffer[],
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(types, char *);
+	str = va_arg(ap, char *);
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
@@ -163,7 +160,8 @@ int print_str_rot13(va_list ap, char buffer[],
 
 	if (str == NULL)
 		str = "(HELLO)";
-    while(str[a])
+
+	while (str[a] != '\0')
 	{
 		for (b = 0; in[b]; b++)
 		{
@@ -175,12 +173,17 @@ int print_str_rot13(va_list ap, char buffer[],
 				break;
 			}
 		}
-		if (!in[b])
+
+		if (!in[b]  && str[a] != '\0')
 		{
 			x = str[a];
 			write(1, &x, 1);
 			count++;
 		}
+		a++;
 	}
+
 	return (count);
 }
+
+
