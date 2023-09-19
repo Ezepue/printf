@@ -154,7 +154,7 @@ int print_binary_number(va_list args, char buffer[],
 {
 	unsigned int num, a, b;
 	unsigned int binary[32];
-	int count;
+	int count = 0;
 
 	UNUSED(buffer);
 	UNUSED(flags);

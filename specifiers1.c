@@ -120,7 +120,7 @@ int print_reverse(va_list ap, char buffer[],
 		str = ")Null(";
 	}
 
-	for (a = 0; str[a]; a++)
+	for (a = 0; str[a]; a++);
 	for (a = a - 1; a >= 0; a--)
 	{
 		char z = str[a];
