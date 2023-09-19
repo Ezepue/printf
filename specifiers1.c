@@ -105,6 +105,7 @@ int print_reverse(va_list ap, char buffer[],
 {
 	char *str;
 	int a, count = 0;
+	char *end;
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -120,8 +121,13 @@ int print_reverse(va_list ap, char buffer[],
 		str = ")Null(";
 	}
 
-	for (a = 0; str[a]; a++)
-	for (a = a - 1; a >= 0; a--)
+	end = str;
+
+	while (*end != '\0')
+	{
+		end++;
+	}
+	for (a = end - 1; a >= 0; a--)
 	{
 		char z = str[a];
 
