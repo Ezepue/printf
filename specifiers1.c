@@ -152,7 +152,7 @@ int print_str_rot13(va_list ap, char buffer[],
 {
 	char x;
 	char *str;
-	unsigned int a, b;
+	unsigned int a = 0, b;
 	int count = 0;
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
