@@ -20,8 +20,8 @@
 	      in lowercase letters
 	* %X:Prints the hexadecial representation of an unsigned decimal
 	     in uppercase letters
-4.	Uses a local buffer of 1024 chars in order to call write as little 
-    as possible.
+4.	Uses a local buffer of 1024 chars in order to call write as littl
+	e as possible.
 5.	function that prints a string, handles;
 	* %S
 6.	prints the memory address represented by that pointer in
@@ -29,9 +29,9 @@
 	* %p
 7.	handles the following flag characters for non-custom conversion 
 	specifiers;
-	* "+"
+	* +
 	* space
-	* "#"
+	* #
 8.	handles the following length modifiers for non-custom conversion
 	specifiers;
 	* l

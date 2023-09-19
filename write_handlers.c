@@ -12,7 +12,7 @@
  */
 int handle_write_character(char c, char buffer[],
 	int flags, int width, int precision, int size)
-{
+{ /* char is stored onthe lef sidet and paddind at buffer's right */
 	int a = 0;
 	char pad = ' ';
 
